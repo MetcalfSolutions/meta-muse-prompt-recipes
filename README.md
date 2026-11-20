@@ -28,14 +28,6 @@ Copy the entire block below and paste it into your Muse chat (or paste just the 
 ````markdown
 # Muse Weekly Quota Audit: a shareable recipe
 
-**What this is:** a recipe you give your own Muse, once. It sets up a weekly audit of how you used your Muse quota, where it went, how to spend less of it next week, and what you could be getting from Muse that you are not. Results land in one living Space that gains a new dated edition every week, so trends build up over time.
-
-**What it costs:** one tiny snapshot job and one audit run per week. The audit is read-only. It never deletes, disables, or changes any of your scheduled jobs or settings. It recommends; you decide.
-
-**How to use it:** paste the whole Setup section below to your Muse and answer its questions. After setup, it runs on its own every week.
-
----
-
 ## Setup (give this to your Muse once)
 
 You are setting up my Weekly Quota Audit. Do these steps in order, then confirm what you created.
