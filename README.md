@@ -42,7 +42,6 @@ You are setting up my Weekly Quota Audit. Do these steps in order, then confirm 
 
 5. **Confirm back to me:** my plan and reset time as you found them, the two run times you set, and the Space link. If any step could not be completed, say which one and why, plainly.
 
----
 
 ## Audit Prompt (this is what the weekly audit job runs)
 
