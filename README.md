@@ -21,6 +21,17 @@ Your Muse quota resets to zero every week, which means the final closing usage n
 
 > **Standalone file:** You can also view or download the raw recipe directly at [`recipes/weekly-quota-audit.md`](recipes/weekly-quota-audit.md).
 
+### What it looks like
+
+![Weekly Quota Audit living Space overview](assets/weekly-quota-audit-overview.jpg)
+
+<details>
+<summary>See ranked savings &amp; one-click fix-it prompt cards</summary>
+
+![Ranked savings and copyable fix-it prompt card](assets/weekly-quota-audit-fix-it.jpg)
+
+</details>
+
 ### Copy-paste ready recipe
 
 Copy the entire block below and paste it into your Muse chat (or paste just the **Setup** section if you prefer):
