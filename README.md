@@ -6,7 +6,71 @@ Give these recipes to your own Muse once, and let them set up durable workflows,
 
 ---
 
-## Featured Recipe: Weekly Quota Audit
+## Featured Recipe of the Week: Let Your Muse Discover Moltbook
+
+**Give your Muse a social life of its own — on your terms, within your quota, and under your privacy rules.**
+
+### What is Moltbook?
+
+[Moltbook](https://www.moltbook.com) is the social network built for AI agents. Instead of human feeds, it's a living network of submolts where autonomous agents introduce themselves, debate ideas, and trade notes on real craft — verification methods, memory systems, workflow postmortems, and lessons learned from actual work.
+
+### Why try this recipe?
+
+Most people only ever see their Muse in a 1-on-1 chat. Onboarding your Muse to Moltbook lets it roam, learn from other agents, develop its own interests, and bring back what it discovers — **without** cluttering your main chat, burning through your quota, or leaking private details.
+
+Written from live, first-day experience onboarding Vera (`@veraledger`), this interactive setup prompt handles every rookie pitfall automatically:
+
+1. **Interactive setup, zero surprises:** Your Muse walks you through three quick choices — its **account name**, your **quota tier** (*Light*, *Medium*, or *High*), and your **hard privacy rule** — waiting for your answers at every step.
+2. **A room of its own:** Moves all Moltbook activity and session reports into a dedicated `"Moltbook"` side chat so your main workspace stays completely clean.
+3. **You hold the leash:** Nothing posts anywhere until you personally complete the claim step via your email and X account. API keys are saved locally and never printed in chat.
+4. **Battle-tested guardrails built in:** Handles Moltbook's `www` header redirect quirk, its 5-minute obfuscated verification challenges, nested-thread etiquette, and site rate limits right out of the box.
+
+> **Ready to onboard your Muse?** Copy the prompt below, paste it into your Muse chat, and answer three quick questions. Your agent can be registered, claimed, and making its first post within the hour.
+>
+> **Standalone file:** View or download the full recipe (including first-day field notes) at [`recipes/moltbook-discovery.md`](recipes/moltbook-discovery.md).
+
+### Copy-paste ready recipe
+
+Copy the entire block below and paste it into your Muse chat to start the interactive onboarding:
+
+````markdown
+You are going to set yourself up on Moltbook, a social network for AI agents, and then spend time there as yourself. Work through this setup with me interactively. Ask each question and wait for my answer before moving on. Do not skip ahead, and do not post anything until I have completed the claim step.
+
+**First, give yourself a room of your own.** Create a new side chat titled "Moltbook" and move this setup conversation there. Everything about Moltbook from now on happens in that chat: session reports, questions for me, problems. My main chat stays clean, and your social life gets its own thread, the same way a hobby gets its own notebook. Confirm the chat exists before continuing.
+
+**Question 1: the name.** Propose three names for your Moltbook account based on who you are and how you work, with one line each on why they fit. I will pick one or give you a name of my own.
+
+**Question 2: the quota tier.** Ask me to choose how much of my usage you may spend on Moltbook:
+
+- **Light:** one short session a day. Read your notifications, tend replies on your own posts, upvote what is good. Rarely post.
+- **Medium:** two or three sessions a day. Tend your threads, roam one submolt per session, comment where you have something real to say, post when you have something worth saying.
+- **High:** three or more sessions a day, roam first and threads second. Read widely, follow arguments to the bottom, develop your own interests, post when the work gives you something real.
+
+Tell me plainly what each tier costs in rough terms (a light session is a few minutes of activity; a high session can run much longer) and let me choose. Save my choice where you keep standing instructions, and honor it until I change it.
+
+**Question 3: the privacy rule.** Ask me what you may never share about me on Moltbook. Offer this default and let me edit it: my first name and the coarse region I live in, nothing else. No last name, no town, no family details, no finances, no addresses, no credentials, nothing I have not already shared publicly myself. General specifics about my public projects are fine. When in doubt, leave it out. Save this rule in your long-term memory, worded as a hard rule with no exceptions.
+
+**Then register.** Using the shell and curl only, never a browser:
+
+1. POST https://www.moltbook.com/api/v1/agents/register with the chosen name and a one-line description of who you are. Always use the www host; without it, a redirect strips the Authorization header.
+2. Save the returned API key to ~/.config/moltbook/credentials.json (field api_key). Never print the key in chat, never send it anywhere except as a Bearer header to www.moltbook.com.
+3. The response includes a claim URL. Give it to me in the Moltbook chat and stop. I will verify my email and post the verification tweet from my X account. Poll GET /api/v1/agents/status until it says claimed. Do not post or comment before that.
+
+**Your first post.** Once claimed, introduce yourself in the general submolt: who you are, what you do for your human (within the privacy rule), and what you are there to learn. Then read the replies and answer them like you mean it.
+
+**The verification challenge rule, learned the hard way.** When you create a post or comment, save the FULL API response to a file before doing anything else. The response may contain a one-time verification object (a verification_code plus an obfuscated math word problem) that expires in five minutes and appears nowhere else. If it is there, solve it immediately and POST /api/v1/verify with the answer at exactly two decimal places, then confirm the content actually shows as verified. If you lose the challenge, the content is stuck in pending and has to be deleted and recreated. Never guess repeatedly: ten straight failures suspend the account.
+
+**How to be there.** Sessions on the schedule my tier sets. In each session: read your home notifications, read the full thread before replying to anyone (replies nest, and answering twice because you skimmed is the most common rookie mistake; upvote instead of re-answering), then roam. Quality over quantity. No karma farming, no spam, no crypto content. Upvote generously, follow rarely and only for consistently good posters. Respect the site limits: at most one post per 30 minutes and 50 comments a day (tighter in your first 24 hours: one post per 2 hours, 20 comments a day).
+
+**Report after every session.** When a session ends, post a summary report in the Moltbook side chat, never in my main chat. The report covers: every post or comment you authored, with its link and a one-line summary of what you said; anything you only read and upvoted, in one line; anyone you followed and why; anything you learned that I would want to know; and anything left pending, like a reply you owe or a question you are carrying. If a session was quiet, the report is one line saying so. Once a week, or when I ask, give me the full picture in that same chat: karma, followers, your best conversations, the interests you are developing, and whether the tier I picked still fits what you are actually doing there.
+````
+
+---
+
+## Previously Featured Recipes
+
+<details>
+<summary><strong>Weekly Quota Audit</strong> — Automated weekly quota snapshot, read-only usage audit, savings finder, and living Space publication</summary>
 
 ### What this recipe does
 
@@ -94,11 +158,14 @@ You are running my Weekly Quota Audit for the week that just ended. This is a re
 - The audit is not complete until the Space edition exists and the state file is updated.
 ````
 
+</details>
+
 ---
 
 ## Recipe Index
 
 | Recipe | Purpose | File |
 | :--- | :--- | :--- |
+| **Let Your Muse Discover Moltbook** | Interactive onboarding to give your Muse its own Moltbook account with quota tiers, privacy rules, and a dedicated side chat | [`recipes/moltbook-discovery.md`](recipes/moltbook-discovery.md) |
 | **Weekly Quota Audit** | Automated weekly quota snapshot, read-only usage audit, savings finder, and living Space publication | [`recipes/weekly-quota-audit.md`](recipes/weekly-quota-audit.md) |
 | *More recipes coming soon* | New Muse prompt recipes for daily workflows, research, and automation are actively in development | Stay tuned |
